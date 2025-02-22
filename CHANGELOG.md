@@ -10,6 +10,15 @@
 - Main assets is now baked into DLL file, reducing hassle.
 - Added a changelog.txt file in the build.
 - Added a "-concept" suffix in the version number to avoid confusion between the full release and the concept release.
+- Added a self-update support.
 - Moved the initialization method from OnLoad to PostLoad, thus fixing some bugs.
 - Replaced an stock mirror with Peugeot's one and added Right Mirror support.
-- Removed an unused steering wheel, it'll be back in the next release.
+- Added an AI-generated steering wheel.
+- **NOT AVAILABLE IN RELEASE BUILDS:** Added an ability to reload the model by holding the P key and then pressing the R key.
+
+## 0.1-concept3
+
+- Poorly removed seats and dashboard in the interior mesh.
+- Added an AI-generated steering wheel.
+- Removed original windows.
+- **OPEN-SOURCE EXCLUSIVE:** Added an missing bumper model source.

@@ -10,9 +10,8 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: fullsize_door_FR
-    4300002: fullsize_door_FL
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:

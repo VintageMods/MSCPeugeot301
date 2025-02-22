@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MSCLoader">
-      <HintPath>..\..\MSCLibs\MSCLoader.dll</HintPath>
+      <HintPath>C:\Users\exyxz\Documents\MSCLibs\MSCLoader.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

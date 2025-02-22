@@ -8,7 +8,7 @@ namespace MSCPeugeot301
         public override string ID => "MSCPeugeot301";
         public override string Name => "Peugeot 301";
         public override string Author => "exyxz";
-        public override string Version => "0.1-concept2";
+        public override string Version => "0.1-concept3";
         public override string Description => "An actual Peugeot 301 for Satsuma.";
         public override bool UseAssetsFolder => true;
 
@@ -34,6 +34,11 @@ namespace MSCPeugeot301
             Material chrome = bundle.LoadAsset<Material>("super_chrome-material.mat");
             foreach (MeshFilter filter in filters)
             {
+                if (filter.name.Contains("steering wheel(Clone)"))
+                {
+                    filter.mesh = bundle.LoadAsset<Mesh>("fullsize_steer.fbx");
+                    filter.GetComponent<MeshRenderer>().material = bundle.LoadAsset<Material>("No Name.mat");
+                }
                 switch (filter.name)
                 {
                     case "car body masse(xxxxx)":
@@ -41,17 +46,17 @@ namespace MSCPeugeot301
                         break;
 
                     case "car body(xxxxx)":
-                        filter.mesh = body.transform.GetChild(0).GetChild(0).GetComponent<MeshFilter>().mesh;
-                        filter.GetComponent<MeshRenderer>().materials = body.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().materials;
+                        filter.mesh = body.transform.GetChild(0).GetComponent<MeshFilter>().mesh;
+                        filter.GetComponent<MeshRenderer>().materials = body.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
                         GameObject b2 = new GameObject("doorRL");
                         b2.AddComponent<MeshFilter>().mesh = body.transform.GetChild(1).GetComponent<MeshFilter>().mesh;
-                        b2.AddComponent<MeshRenderer>().material = body.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material;
+                        b2.AddComponent<MeshRenderer>().material = body.transform.GetChild(0).GetComponent<MeshRenderer>().material;
                         b2.transform.parent = filter.transform;
                         b2.transform.position = filter.transform.position;
                         b2.transform.rotation = filter.transform.rotation;
                         GameObject b3 = new GameObject("doorRR");
                         b3.AddComponent<MeshFilter>().mesh = body.transform.GetChild(2).GetComponent<MeshFilter>().mesh;
-                        b3.AddComponent<MeshRenderer>().material = body.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material;
+                        b3.AddComponent<MeshRenderer>().material = body.transform.GetChild(0).GetComponent<MeshRenderer>().material;
                         b3.transform.parent = filter.transform;
                         b3.transform.position = filter.transform.position;
                         b3.transform.rotation = filter.transform.rotation;
@@ -59,7 +64,7 @@ namespace MSCPeugeot301
 
                     case "hood(Clone)":
                         filter.mesh = bundle.LoadAsset<Mesh>("fullsize_hood.fbx");
-                        filter.GetComponent<MeshRenderer>().materials = body.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().materials;
+                        filter.GetComponent<MeshRenderer>().materials = body.transform.GetChild(0).GetComponent<MeshRenderer>().materials;
                         break;
 
                     case "bootlid(Clone)":
@@ -69,12 +74,12 @@ namespace MSCPeugeot301
 
                     case "door left(Clone)":
                         filter.mesh = bundle.LoadAsset<Mesh>("fullsize_fdoor.fbx");
-                        filter.GetComponent<MeshRenderer>().material = body.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material;
+                        filter.GetComponent<MeshRenderer>().materials = body.transform.GetChild(5).GetComponent<MeshRenderer>().materials;
                         break;
 
                     case "door right(Clone)":
                         filter.mesh = bundle.LoadAsset<Mesh>("fullsize_fdoorr.fbx");
-                        filter.GetComponent<MeshRenderer>().material = body.transform.GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material;
+                        filter.GetComponent<MeshRenderer>().materials = body.transform.GetChild(5).GetComponent<MeshRenderer>().materials;
                         break;
 
                     case "bumper front(Clone)":
@@ -113,7 +118,7 @@ namespace MSCPeugeot301
             if (crap) crap.transform.localPosition = new Vector3(.53f, .654f, -1.525f);
             crap = GameObject.Find("SATSUMA(557kg, 248)/MiscParts/pivot_headlight_right");
             if (crap) crap.transform.localPosition = new Vector3(-.53f, .654f, -1.525f);
-            Material[] mirror_materials = new Material[3] { chrome, chrome, bundle.LoadAsset<Material>("shine.mat") };
+			Material[] mirror_materials = new Material[3] { chrome, chrome, bundle.LoadAsset<Material>("shine.mat") };
             Camera mirrorCamera = GameObject.Find("Systems/Mirrors/Disable/LeftSideMirrorCam").GetComponent<Camera>();
             crap = GameObject.Find("SATSUMA(557kg, 248)/Body/pivot_door_left/door left(Clone)/mirror");
             if (crap) SwapMirror(bundle, crap, mirror_materials, mirrorCamera);
@@ -123,6 +128,12 @@ namespace MSCPeugeot301
                 crap.transform.localScale = new Vector3(-1, 1, 1);
                 SwapMirror(bundle, crap, mirror_materials, mirrorCamera);
             }
+            crap = GameObject.Find("SATSUMA(557kg, 248)/Body/pivot_door_left/door left(Clone)/windows_pivot");
+            if (crap) crap.SetActive(false);
+            crap = GameObject.Find("SATSUMA(557kg, 248)/Body/pivot_door_right/door right(Clone)/windows_pivot");
+            if (crap) crap.SetActive(false);
+            crap = GameObject.Find("SATSUMA(557kg, 248)/Body/rear_windows");
+            if (crap) crap.SetActive(false);
             bundle.Unload(false);
         }
     }
