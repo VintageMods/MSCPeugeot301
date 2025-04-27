@@ -1,5 +1,8 @@
 # MSCPeugeot301
 
+> [!WARNING]
+> This mod was no longer in development, any support will not be provided.
+
 MSCPeugeot301 is our attempt to replace Satsuma from My Summer Car to Peugeot 301 1.6 HDi Allure.
 
 ## Build instructions
@@ -8,7 +11,3 @@ MSCPeugeot301 is our attempt to replace Satsuma from My Summer Car to Peugeot 30
 2. Click `Build > Build MSCPeugeot301` to compile.
 3. You can then drag DLL (and PDB if you compiled the debug build) file to your `Mods` folder.
 4. Have fun!
-
-Bug reports and pull requests are welcome.
-
-For more information, check out at [NexusMods](https://www.nexusmods.com/mysummercar/mods/7721).
